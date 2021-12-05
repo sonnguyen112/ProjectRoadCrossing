@@ -15,12 +15,18 @@ class Player
 private:
 	Texture texture;
 	Sprite sprite;
-
+	int mX, mY;
+	bool mState; //Trang thai song chet
+	
 	void initTexture();
 	void initSprite();
 public:
 	Player();
 
+	void Up(int);
+	void Left(int);
+	void Right(int);
+	void Down(int);
 	void update();
 	void render();
 };
