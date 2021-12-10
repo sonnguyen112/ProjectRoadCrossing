@@ -7,7 +7,7 @@ void Game::initVariable()
 
 void Game::initWindow()
 {
-	this->videoMode = VideoMode(800, 600);
+	this->videoMode = VideoMode(1200, 900);
 	this->window = new RenderWindow(this->videoMode, "Game 1", Style::Titlebar | Style::Close);
 	this->window->setFramerateLimit(60);
 }
