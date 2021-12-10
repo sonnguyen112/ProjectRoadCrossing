@@ -9,13 +9,14 @@ void Game::initWindow()
 {
 	this->videoMode = VideoMode(800, 600);
 	this->window = new RenderWindow(this->videoMode, "Game 1", Style::Titlebar | Style::Close);
-	this->window->setFramerateLimit(144);
+	this->window->setFramerateLimit(60);
 }
 
 Game::Game()
 {
 	this->initVariable();
 	this->initWindow();
+	factory.initAnimals(*window);
 }
 
 Game::~Game()
@@ -49,12 +50,15 @@ void Game::eventListener()
 void Game::update()
 {
 	this->eventListener();
+	factory.updateAnimals(*window);
 }
 
 void Game::render()
 {
 	//Clear old frame
 	this->window->clear(Color::Black);
+
+	factory.renderAnimals(*window);
 
 	//Display
 	this->window->display();

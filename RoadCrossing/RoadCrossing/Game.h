@@ -7,6 +7,9 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
+//test
+#include "AnimalFactory.h"
+#include "Animal.h"
 using namespace sf;
 using namespace std;
 class Game
@@ -16,6 +19,10 @@ private:
 	RenderWindow* window;
 	Event ev;
 	VideoMode videoMode;
+
+	//Test
+	vector<Animal*> animals;
+	AnimalFactory factory;
 
 	//private function
 	void initVariable();
