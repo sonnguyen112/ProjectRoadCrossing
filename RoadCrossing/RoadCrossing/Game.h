@@ -7,6 +7,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
+#include "Player.h"
+
 using namespace sf;
 using namespace std;
 class Game
@@ -16,10 +18,15 @@ private:
 	RenderWindow* window;
 	Event ev;
 	VideoMode videoMode;
+	Player* player;
+	Texture GameBackgroundtex;
+	Sprite GameBackground;
 
 	//private function
 	void initVariable();
 	void initWindow();
+	void initPlayer();
+	void initWorld();
 public:
 	// con/destructor
 	Game();
@@ -32,5 +39,5 @@ public:
 	void eventListener();
 	void update();
 	void render();
+	void renderBackground();
 };
-

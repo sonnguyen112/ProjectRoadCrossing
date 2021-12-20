@@ -10,24 +10,21 @@
 using namespace sf;
 using namespace std;
 
-class Player
-{
+class Player{
 private:
 	Texture texture;
 	Sprite sprite;
-	int mX, mY;
-	bool mState; //Trang thai song chet
-	
+	float movementSpeed;
+
 	void initTexture();
 	void initSprite();
+	void initVariable();
 public:
-	Player();
+	Player(float x = 0.f, float y = 0.f);
+	virtual ~Player();
 
-	void Up(int);
-	void Left(int);
-	void Right(int);
-	void Down(int);
-	void update();
-	void render();
+	void UpdateInput();
+	void update(RenderTarget* TARGET);
+	void render(RenderTarget* TARGET);
+	void collisionWindow();
 };
-
