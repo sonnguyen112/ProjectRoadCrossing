@@ -16,5 +16,5 @@ using namespace std;
 class Bat : public Animal{
 public:
 	Bat();
-	void update();
+	void update(RenderTarget& target);
 };

@@ -16,5 +16,5 @@ using namespace std;
 class Dinosaur : public Animal {
 public:
 	Dinosaur();
-	void update();
+	void update(RenderTarget& target);
 };

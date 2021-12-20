@@ -20,9 +20,12 @@ private:
 	Event ev;
 	VideoMode videoMode;
 
-	//Test
+	//Animals
 	vector<Animal*> animals;
 	AnimalFactory factory;
+	void initAnimals(RenderTarget& target);
+	void updateAnimals(RenderTarget& target);
+	void renderAnimals(RenderTarget& target);	
 
 	//private function
 	void initVariable();

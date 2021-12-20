@@ -9,7 +9,8 @@ void Animal::initTexture(string fpath)
 	}
 }
 
-void Animal::initSprite(int left, int top, int width, int height, float scale, Vector2f beginPos, float vel_)
+void Animal::initSprite(int left, int top, int width, int height, 
+	float scale, Vector2f beginPos, float vel_, int direct_)
 {
 	sprite.setTexture(textureSheet);
 	currentFrame = sf::IntRect(left, top, width, height);
@@ -18,6 +19,7 @@ void Animal::initSprite(int left, int top, int width, int height, float scale, V
 	sprite.setScale(scale, scale);
 	sprite.setPosition(beginPos);
 	vel = vel_;
+	direct = direct_;
 }
 
 void Animal::initAnimations()
@@ -25,10 +27,11 @@ void Animal::initAnimations()
 	animationTimer.restart();
 }
 
-Animal::Animal(string fpath, int left, int top, int width, int height, float scale, Vector2f beginPos, float vel_)
+Animal::Animal(string fpath, int left, int top, int width, int height, 
+	float scale, Vector2f beginPos, float vel_, int direct_)
 {
 	initTexture(fpath);
-	initSprite(left, top, width, height, scale, beginPos, vel_);
+	initSprite(left, top, width, height, scale, beginPos, vel_, direct_);
 	initAnimations();
 }
 
@@ -50,12 +53,12 @@ void Animal::setPosition(float x, float y)
 
 void Animal::updateMovement()
 {
-	sprite.move(vel, 0.f);
+	sprite.move(vel*direct, 0.f);
 }
 
 void Animal::updateAnimations(int top, int widthPerImage, int maxWidthImage)
 {
-	if (animationTimer.getElapsedTime().asSeconds() >= 0.10f)
+	if (animationTimer.getElapsedTime().asSeconds() >= 0.15f)
 	{
 		currentFrame.top = top;
 		currentFrame.left += widthPerImage;

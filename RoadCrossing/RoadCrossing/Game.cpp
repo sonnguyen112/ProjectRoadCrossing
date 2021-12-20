@@ -16,12 +16,16 @@ Game::Game()
 {
 	this->initVariable();
 	this->initWindow();
-	factory.initAnimals(*window);
+	initAnimals(*window);
 }
 
 Game::~Game()
 {
 	delete this->window;
+
+	for (auto animal : animals) {
+		delete animal;
+	}
 }
 
 bool Game::isRunning()
@@ -50,7 +54,7 @@ void Game::eventListener()
 void Game::update()
 {
 	this->eventListener();
-	factory.updateAnimals(*window);
+	updateAnimals(*window);
 }
 
 void Game::render()
@@ -58,10 +62,35 @@ void Game::render()
 	//Clear old frame
 	this->window->clear(Color::Black);
 
-	factory.renderAnimals(*window);
+	renderAnimals(*window);
 
 	//Display
 	this->window->display();
 }
 
+//____________________Animals____________________
+void Game::initAnimals(RenderTarget& target) {
+	for (int i = 0; i < 3; ++i) {
+		Animal* p = factory.getAnimal(BAT);
+		float size = target.getSize().x / 3.f;
+		p->setPosition(size*i, p->getPosition().y);
+		animals.push_back(p);
+	}
 
+	for (int i = 0; i < 3; ++i) {
+		Animal* p = factory.getAnimal(DINOSAUR);
+		float size = target.getSize().x / 3.f;
+		p->setPosition(size*i, p->getPosition().y);
+		animals.push_back(p);
+	}
+}
+void Game::updateAnimals(RenderTarget& target) {
+	for (auto animal : animals) {
+		animal->update(target);
+	}
+}
+void Game::renderAnimals(RenderTarget& target) {
+	for (auto animal : animals) {
+		animal->render(target);
+	}
+}
