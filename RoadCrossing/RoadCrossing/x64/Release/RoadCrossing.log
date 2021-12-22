@@ -1,16 +1,8 @@
-﻿  Animal.cpp
-  AnimalFactory.cpp
-  Bat.cpp
-d:\final project oop\projectroadcrossing\roadcrossing\roadcrossing\bat.cpp(10): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-  Game.cpp
+﻿  Game.cpp
   main.cpp
   Generating code
-  64 of 168 functions (38.1%) were compiled, the rest were copied from previous compilation.
-    3 functions were new in current compilation
-    9 functions had inline decision re-evaluated but remain unchanged
+  0 of 168 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   RoadCrossing.vcxproj -> D:\Final Project OOP\ProjectRoadCrossing\RoadCrossing\x64\Release\RoadCrossing.exe
