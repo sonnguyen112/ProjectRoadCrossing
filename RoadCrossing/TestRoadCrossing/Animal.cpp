@@ -18,6 +18,7 @@ void Animal::initSprite(int left, int top, int width, int height,
 	sprite.setTextureRect(currentFrame);
 	sprite.setScale(scale, scale);
 	sprite.setPosition(beginPos);
+	sound.setBuffer(buffer);
 	vel = vel_;
 	direct = direct_;
 }
@@ -27,12 +28,18 @@ void Animal::initAnimations()
 	animationTimer.restart();
 }
 
-Animal::Animal(string fpath, int left, int top, int width, int height,
+Animal::Animal(string fpath_image, string fpath_sound, int left, int top, int width, int height,
 	float scale, Vector2f beginPos, float vel_, int direct_)
 {
-	initTexture(fpath);
+	initTexture(fpath_image);
 	initSprite(left, top, width, height, scale, beginPos, vel_, direct_);
 	initAnimations();
+	initSoundBuffer(fpath_sound);
+}
+
+void Animal::playSound()
+{
+	sound.play();
 }
 
 Vector2f Animal::getPosition()
@@ -69,6 +76,14 @@ void Animal::updateAnimations(int top, int widthPerImage, int maxWidthImage)
 		animationTimer.restart();
 		sprite.setTextureRect(currentFrame);
 	}
+}
+
+void Animal::initSoundBuffer(string fpath)
+{
+	if (!buffer.loadFromFile(fpath)) {
+		cout << "Could not load the sound" << endl;
+	}
+		
 }
 
 void Animal::render(RenderTarget & target)

@@ -17,6 +17,8 @@ protected:
 	IntRect currentFrame;
 	Clock animationTimer;
 	Vector2f curPos;
+	SoundBuffer buffer;
+	Sound sound;
 	float vel;
 	int direct;
 
@@ -26,9 +28,13 @@ protected:
 	void initAnimations();
 	void updateMovement();
 	void updateAnimations(int top, int widthPerImage, int maxWidthImage);
+
+	void initSoundBuffer(string fpath);
 public:
-	Animal(string fpath, int left, int top, int width, int height,
+	Animal(string fpath_image, string fpath_sound, int left, int top, int width, int height,
 		float scale, Vector2f beginPos, float vel_, int direct_);
+	
+	virtual void playSound();
 
 	virtual Vector2f getPosition();
 	virtual FloatRect getGlobalBounds();

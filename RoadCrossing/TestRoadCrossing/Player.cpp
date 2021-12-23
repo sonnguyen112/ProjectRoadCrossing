@@ -1,4 +1,4 @@
-#include "..\..\TestRoadCrossing\TestRoadCrossing\Player.h"
+#include "Player.h"
 
 void Player::initVariable()
 {

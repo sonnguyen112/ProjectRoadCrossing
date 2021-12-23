@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "..\..\TestRoadCrossing\TestRoadCrossing\Game.h"
 
 void Game::initVariable()
 {
@@ -125,6 +124,7 @@ void Game::updateColAnimal()
 {
 	for (auto e : this->animals) {
 		if (this->player->getBound().intersects(e->getGlobalBounds())){
+			e->playSound();
 			this->endGame = true;
 			break;
 		}

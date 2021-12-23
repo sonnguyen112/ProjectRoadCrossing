@@ -1,5 +1,4 @@
 #include "Truck.h"
-#include "..\..\TestRoadCrossing\TestRoadCrossing\Truck.h"
 
 void Truck::initVariable()
 {

@@ -1,12 +1,24 @@
-﻿  Game.cpp
-c:\data\c++\sfml\testroadcrossing\testroadcrossing\game.cpp(55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+﻿  Animal.cpp
+  AnimalFactory.cpp
+  Bat.cpp
+d:\final project oop\projectroadcrossing\roadcrossing\testroadcrossing\bat.cpp(10): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-c:\data\c++\sfml\testroadcrossing\testroadcrossing\game.cpp(56): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+  Dinosaur.cpp
+d:\final project oop\projectroadcrossing\roadcrossing\testroadcrossing\dinosaur.cpp(4): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game.cpp
+d:\final project oop\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(54): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-  TestRoadCrossing.vcxproj -> C:\Data\C++\SFML\TestRoadCrossing\x64\Debug\TestRoadCrossing.exe
+d:\final project oop\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  main.cpp
+  Generating Code...
+  TestRoadCrossing.vcxproj -> D:\Final Project OOP\ProjectRoadCrossing\RoadCrossing\x64\Debug\TestRoadCrossing.exe
