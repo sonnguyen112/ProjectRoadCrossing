@@ -11,20 +11,28 @@ void Game::initWindow()
 	this->window = new RenderWindow(this->videoMode, "Game 1", Style::Titlebar | Style::Close);
 	this->window->setFramerateLimit(60);
 }
+void Game::initWorld()
+{
+	this->GameBackgroundtex.loadFromFile("img/Vehicle/Background.jpg");
+	this->GameBackground.setTexture(GameBackgroundtex);
+}
 
 Game::Game()
 {
 	this->initVariable();
 	this->initWindow();
-	initAnimals(*window);
+	this->initWorld();
+	
+	
+	initVehicles(*window);
 }
 
 Game::~Game()
 {
 	delete this->window;
 
-	for (auto animal : animals) {
-		delete animal;
+	for (auto vehicle : vehicles) {
+		delete vehicle;
 	}
 }
 
@@ -54,43 +62,50 @@ void Game::eventListener()
 void Game::update()
 {
 	this->eventListener();
-	updateAnimals(*window);
+	updateVehicles(*window);
+	
 }
 
 void Game::render()
 {
 	//Clear old frame
 	this->window->clear(Color::Black);
-
-	renderAnimals(*window);
-
+	this->renderBackground();
+	
+	
+	
+	renderVehicles(*window);
 	//Display
 	this->window->display();
 }
 
-//____________________Animals____________________
-void Game::initAnimals(RenderTarget& target) {
+
+void Game::initVehicles(RenderTarget& target) {
 	for (int i = 0; i < 3; ++i) {
-		Animal* p = factory.getAnimal(BAT);
+		Vehicle* p = factory.getVehicle(CAR);
 		float size = target.getSize().x / 3.f;
 		p->setPosition(size*i, p->getPosition().y);
-		animals.push_back(p);
+		vehicles.push_back(p);
 	}
 
 	for (int i = 0; i < 3; ++i) {
-		Animal* p = factory.getAnimal(DINOSAUR);
+		Vehicle* p = factory.getVehicle(TRUCK);
 		float size = target.getSize().x / 3.f;
 		p->setPosition(size*i, p->getPosition().y);
-		animals.push_back(p);
+		vehicles.push_back(p);
 	}
 }
-void Game::updateAnimals(RenderTarget& target) {
-	for (auto animal : animals) {
-		animal->update(target);
+void Game::updateVehicles(RenderTarget& target) {
+	for (auto vehicle : vehicles) {
+		vehicle->update(target);
 	}
 }
-void Game::renderAnimals(RenderTarget& target) {
-	for (auto animal : animals) {
-		animal->render(target);
+void Game::renderVehicles(RenderTarget& target) {
+	for (auto vehicle : vehicles) {
+		vehicle->render(target);
 	}
+}
+void Game::renderBackground()
+{
+	this->window->draw(this->GameBackground);
 }

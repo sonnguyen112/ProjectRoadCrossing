@@ -22,19 +22,19 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{7C2041CA-F763-4E28-AAB4-14E93FD5BA31}</ProjectGuid>
     <RootNamespace>RoadCrossing</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -135,24 +135,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Animal.cpp" />
-    <ClCompile Include="AnimalFactory.cpp" />
-    <ClCompile Include="Dinosaur.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="VehicleFactory.cpp" />
+    <ClCompile Include="Truck.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Bat.cpp" />
-    <ClCompile Include="VehicleFactory.cpp" />
+    <ClCompile Include="Car.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animal.h" />
-    <ClInclude Include="AnimalFactory.h" />
-    <ClInclude Include="Bat.h" />
-    <ClInclude Include="Dinosaur.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="Vehicle.h" />
     <ClInclude Include="VehicleFactory.h" />
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="Truck.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

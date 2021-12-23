@@ -8,8 +8,8 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
 //test
-#include "AnimalFactory.h"
-#include "Animal.h"
+#include "VehicleFactory.h"
+#include "Vehicle.h"
 using namespace sf;
 using namespace std;
 class Game
@@ -20,16 +20,19 @@ private:
 	Event ev;
 	VideoMode videoMode;
 
-	//Animals
-	vector<Animal*> animals;
-	AnimalFactory factory;
-	void initAnimals(RenderTarget& target);
-	void updateAnimals(RenderTarget& target);
-	void renderAnimals(RenderTarget& target);	
+	
+	vector<Vehicle*> vehicles;
+	VehicleFactory factory;
+	void initVehicles(RenderTarget& target);
+	void updateVehicles(RenderTarget& target);
+	void renderVehicles(RenderTarget& target);	
 
 	//private function
 	void initVariable();
 	void initWindow();
+	Texture GameBackgroundtex;
+	Sprite GameBackground;
+	void initWorld();
 public:
 	// con/destructor
 	Game();
@@ -42,5 +45,6 @@ public:
 	void eventListener();
 	void update();
 	void render();
+	void renderBackground();   
 };
 
