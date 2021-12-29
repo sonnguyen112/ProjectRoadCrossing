@@ -4,6 +4,11 @@
 using namespace std;
 
 int main() {
+	//Music
+	Music music;
+	music.openFromFile("BGM//Mario Paint Music - BGM 1.wav");
+
+	music.play();
 
 	//game engine
 	MainMenu mainMenu(945, 709);

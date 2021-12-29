@@ -1,5 +1,4 @@
 #include "MainMenu.h"
-#include "..\..\TestRoadCrossing\TestRoadCrossing\MainMenu.h"
 
 MainMenu::MainMenu(float weight, float height)
 {

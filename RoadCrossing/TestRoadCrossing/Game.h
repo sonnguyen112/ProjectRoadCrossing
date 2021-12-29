@@ -30,11 +30,13 @@ private:
 	int point;
 	Text levelText;
 	int level;
+	Text GameOverText;
 
 	//logic
 	bool endGame;
 
 	//private function
+	void initGameOverText();
 	void initVariable();
 	void initWindow();
 	void initPlayer();

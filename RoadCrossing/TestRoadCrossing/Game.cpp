@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "..\..\TestRoadCrossing\TestRoadCrossing\Game.h"
 
 void Game::initVehicles(RenderTarget & target)
 {
@@ -50,6 +49,18 @@ void Game::initText()
 	this->levelText.setString("Level: " + to_string(this->level));
 	this->levelText.setCharacterSize(30);
 	this->levelText.setPosition(820, 22);
+}
+
+void Game::initGameOverText()
+{
+	if (!this->font.loadFromFile("font//ELEPHNT.ttf")) {
+		cout << "Error font";
+	}
+	this->GameOverText.setFont(this->font);
+	this->GameOverText.setFillColor(Color::Red);
+	this->GameOverText.setString("Game Over!");
+	this->GameOverText.setCharacterSize(80);
+	this->GameOverText.setPosition(260, 270);
 }
 
 void Game::initVariable()
@@ -140,6 +151,7 @@ Game::Game(string gameType)
 	initVehicles(*window);
 	initAnimals(*window);
 	this->initWorld();
+	this->initGameOverText();
 }
 
 Game::~Game()
@@ -200,6 +212,7 @@ void Game::updateColAnimal()
 {
 	for (auto e : this->animals) {
 		if (e->getGlobalBounds().contains(this->player->getMidPoint())){
+			this->player->PlayerCol();
 			e->playSound();
 			this->endGame = true;
 			break;
@@ -252,6 +265,7 @@ void Game::updateColVehicle()
 {
 	for (auto e : this->vehicles) {
 		if (e->getGlobalBounds().contains(this->player->getMidPoint())) {
+			this->player->PlayerCol();
 			this->endGame = true;
 			break;
 		}
@@ -288,6 +302,11 @@ void Game::render()
 
 	//Draw animal
 	renderAnimals(*window);
+
+	//Game Over Text
+	if (this->endGame == true) {
+		this->window->draw(this->GameOverText);
+	}
 
 	//Display
 	this->window->display();

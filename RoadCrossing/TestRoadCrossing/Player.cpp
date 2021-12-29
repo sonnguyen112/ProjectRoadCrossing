@@ -1,4 +1,4 @@
-#include "..\..\TestRoadCrossing\TestRoadCrossing\Player.h"
+#include "Player.h"
 
 void Player::initVariable()
 {
@@ -51,6 +51,11 @@ void Player::setPos(float x, float y)
 void Player::setVel(float vel)
 {
 	this->veclocity = vel;
+}
+
+void Player::PlayerCol()
+{
+	this->sprite.setRotation(90);
 }
 
 void Player::updateCurFrame()
