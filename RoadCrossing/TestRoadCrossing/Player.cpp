@@ -35,6 +35,14 @@ float Player::getVel()
 	return this->veclocity;
 }
 
+Vector2f Player::getMidPoint()
+{
+	Vector2f res;
+	res.x = (this->sprite.getPosition().x + this->sprite.getPosition().x + this->sprite.getGlobalBounds().width) / 2.f;
+	res.y = (this->sprite.getPosition().y + this->sprite.getPosition().y + this->sprite.getGlobalBounds().height) / 2.f;
+	return res;
+}
+
 void Player::setPos(float x, float y)
 {
 	this->sprite.setPosition(x, y);

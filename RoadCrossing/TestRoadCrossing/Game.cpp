@@ -41,15 +41,15 @@ void Game::initText()
 		cout << "Error font";
 	}
 	this->pointText.setFont(this->font);
-	this->pointText.setFillColor(Color::Red);
+	this->pointText.setFillColor(Color::Yellow);
 	this->pointText.setString("Point: " + to_string(this->point));
 	this->pointText.setCharacterSize(30);
-	this->pointText.setPosition(0, 20);
+	this->pointText.setPosition(0, 22);
 	this->levelText.setFont(this->font);
-	this->levelText.setFillColor(Color::Red);
+	this->levelText.setFillColor(Color::Yellow);
 	this->levelText.setString("Level: " + to_string(this->level));
 	this->levelText.setCharacterSize(30);
-	this->levelText.setPosition(820, 20);
+	this->levelText.setPosition(820, 22);
 }
 
 void Game::initVariable()
@@ -199,7 +199,7 @@ void Game::updateVehicles(RenderTarget & target)
 void Game::updateColAnimal()
 {
 	for (auto e : this->animals) {
-		if (this->player->getBound().intersects(e->getGlobalBounds())){
+		if (e->getGlobalBounds().contains(this->player->getMidPoint())){
 			e->playSound();
 			this->endGame = true;
 			break;
@@ -251,7 +251,7 @@ void Game::renderAnimals(RenderTarget& target) {
 void Game::updateColVehicle()
 {
 	for (auto e : this->vehicles) {
-		if (this->player->getBound().intersects(e->getGlobalBounds())) {
+		if (e->getGlobalBounds().contains(this->player->getMidPoint())) {
 			this->endGame = true;
 			break;
 		}

@@ -29,6 +29,7 @@ public:
 	//getter
 	FloatRect getBound();
 	float getVel();
+	Vector2f getMidPoint();
 
 	//setter
 	void setPos(float x, float y);
