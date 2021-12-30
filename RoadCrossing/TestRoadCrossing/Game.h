@@ -30,13 +30,16 @@ private:
 	int point;
 	Text levelText;
 	int level;
+
+	//Resume/Game over handling
 	Text GameOverText;
+	Text isResumeText;
+	bool isResume = true, isGameOver = false;
 
 	//logic
 	bool endGame;
 
 	//private function
-	void initGameOverText();
 	void initVariable();
 	void initWindow();
 	void initPlayer();
@@ -70,5 +73,6 @@ public:
 	void saveGame();
 	void loadGame();
 	void updateLevel();
+	void gameResume(); // 0 when game over, 1 when anytime
 };
 

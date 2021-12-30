@@ -53,9 +53,9 @@ void Player::setVel(float vel)
 	this->veclocity = vel;
 }
 
-void Player::PlayerCol()
+void Player::PlayerCol(float angle)
 {
-	this->sprite.setRotation(90);
+	this->sprite.setRotation(angle);
 }
 
 void Player::updateCurFrame()

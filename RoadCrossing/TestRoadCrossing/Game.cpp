@@ -49,18 +49,20 @@ void Game::initText()
 	this->levelText.setString("Level: " + to_string(this->level));
 	this->levelText.setCharacterSize(30);
 	this->levelText.setPosition(820, 22);
-}
 
-void Game::initGameOverText()
-{
-	if (!this->font.loadFromFile("font//ELEPHNT.ttf")) {
-		cout << "Error font";
-	}
+	//Init game over text
 	this->GameOverText.setFont(this->font);
-	this->GameOverText.setFillColor(Color::Red);
-	this->GameOverText.setString("Game Over!");
+	this->GameOverText.setFillColor(Color::Black);
+	this->GameOverText.setString("Game Over");
 	this->GameOverText.setCharacterSize(80);
-	this->GameOverText.setPosition(260, 270);
+	this->GameOverText.setPosition(260, 200);
+
+	//Init game over handling text
+	this->isResumeText.setFont(this->font);
+	this->isResumeText.setFillColor(Color::Black);
+	this->isResumeText.setString("Resume Y or N ?");
+	this->isResumeText.setCharacterSize(50);
+	this->isResumeText.setPosition(270, 300);
 }
 
 void Game::initVariable()
@@ -151,7 +153,6 @@ Game::Game(string gameType)
 	initVehicles(*window);
 	initAnimals(*window);
 	this->initWorld();
-	this->initGameOverText();
 }
 
 Game::~Game()
@@ -179,6 +180,20 @@ void Game::eventListener()
 			}
 			if (ev.key.code == Keyboard::L) {
 				saveGame();
+			}
+			if (ev.key.code == Keyboard::R) {
+				endGame = true;
+			}
+			if (ev.key.code == Keyboard::Y && endGame) {
+				if (isGameOver) { // reset the position only when game is over
+					isGameOver = false;
+					player->setPos(500, 1100);
+					player->PlayerCol(0.f);
+				}
+				endGame = false;
+			}
+			if (ev.key.code == Keyboard::N && endGame) {
+				isResume = false;
 			}
 			break;
 		}
@@ -212,9 +227,10 @@ void Game::updateColAnimal()
 {
 	for (auto e : this->animals) {
 		if (e->getGlobalBounds().contains(this->player->getMidPoint())){
-			this->player->PlayerCol();
+			this->player->PlayerCol(90);
 			e->playSound();
 			this->endGame = true;
+			this->isGameOver = true;
 			break;
 		}
 	}
@@ -265,8 +281,9 @@ void Game::updateColVehicle()
 {
 	for (auto e : this->vehicles) {
 		if (e->getGlobalBounds().contains(this->player->getMidPoint())) {
-			this->player->PlayerCol();
+			this->player->PlayerCol(90);
 			this->endGame = true;
+			this->isGameOver = true;
 			break;
 		}
 	}
@@ -303,10 +320,9 @@ void Game::render()
 	//Draw animal
 	renderAnimals(*window);
 
-	//Game Over Text
-	if (this->endGame == true) {
-		this->window->draw(this->GameOverText);
-	}
+	//Draw Game Over / Resume
+	if(isGameOver) window->draw(GameOverText);
+	if (endGame) window->draw(isResumeText);
 
 	//Display
 	this->window->display();
@@ -319,6 +335,9 @@ void Game::run()
 	{
 		//Update
 		this->update();
+
+		//Handling game over
+		if (!isResume) return;
 
 		//Render
 		this->render();

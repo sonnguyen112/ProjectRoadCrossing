@@ -1,12 +1,12 @@
 ﻿  Game.cpp
-c:\data\c++\sfml\testroadcrossing\testroadcrossing\game.cpp(64): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
+d:\final project oop\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(77): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
           with
           [
               _Ty=float
           ]
-c:\data\c++\sfml\testroadcrossing\testroadcrossing\game.cpp(65): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
+d:\final project oop\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(78): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
           with
           [
               _Ty=float
           ]
-  TestRoadCrossing.vcxproj -> C:\Data\C++\SFML\TestRoadCrossing\x64\Debug\TestRoadCrossing.exe
+  TestRoadCrossing.vcxproj -> D:\Final Project OOP\ProjectRoadCrossing\RoadCrossing\x64\Debug\TestRoadCrossing.exe
