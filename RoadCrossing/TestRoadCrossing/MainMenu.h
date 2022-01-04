@@ -17,6 +17,10 @@ private:
 	int menuSelect;
 	Font font;
 	Text mainMenu[4];
+	Texture MBGTex;
+	Sprite MBG;
+
+	void initBG();
 public:
 	MainMenu(float weight, float height);
 	int getMenuSelect();

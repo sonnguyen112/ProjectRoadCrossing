@@ -1,7 +1,16 @@
 #include "MainMenu.h"
 
+void MainMenu::initBG()
+{
+	this->MBGTex.loadFromFile("BACKGROUND//1.jpg");
+	this->MBG.setTexture(MBGTex);
+}
+
 MainMenu::MainMenu(float weight, float height)
 {
+	//Background
+	this->initBG();
+
 	this->Menu = new RenderWindow(VideoMode(weight, height), "Main Menu", Style::Titlebar | Style::Close);
 	if (!this->font.loadFromFile("font//ELEPHNT.ttf")) {
 		cout << "Error font";
@@ -36,6 +45,7 @@ void MainMenu::update()
 void MainMenu::render()
 {
 	this->Menu->clear(Color::Black);
+	this->Menu->draw(this->MBG);
 	for (int i = 0; i < 4; i++) {
 		this->Menu->draw(this->mainMenu[i]);
 	}
