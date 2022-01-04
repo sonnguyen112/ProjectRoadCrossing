@@ -35,7 +35,7 @@ public:
 	void setPos(float x, float y);
 	void setVel(float vel);
 
-	void PlayerCol();
+	void PlayerCol(float angle);
 	void updateCurFrame();
 	void updateMove();
 	void update();

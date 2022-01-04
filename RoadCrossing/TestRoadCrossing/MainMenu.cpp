@@ -70,6 +70,7 @@ void MainMenu::moveDown()
 	if (this->menuSelect + 1 <= 2) {
 		this->mainMenu[this->menuSelect].setFillColor(Color::White);
 
+
 		this->menuSelect++;
 		if (this->menuSelect == 3) {
 			this->menuSelect = 0;
