@@ -1,5 +1,4 @@
 #include "MainMenu.h"
-#include "..\..\TestRoadCrossing\TestRoadCrossing\MainMenu.h"
 
 void MainMenu::initBG()
 {

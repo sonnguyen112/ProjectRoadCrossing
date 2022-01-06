@@ -63,6 +63,10 @@ private:
 	int timeChangeColor = timeChangeColorMax;
 	int counter = 0;
 
+	//leveluo sound
+	SoundBuffer levelUpBuffer;
+	Sound levelUpSound;
+
 	//private function
 	void initVariable();
 	void initWindow();
@@ -73,6 +77,7 @@ private:
 	void initText();
 	void initSavedMes();
 	void initLight();
+	void initSound();
 public:
 	// con/destructor
 	Game(string gameType, string namePlayer);

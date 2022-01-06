@@ -7,8 +7,9 @@ int main() {
 	//Music
 	Music music;
 	music.openFromFile("BGM//Mario Paint Music - BGM 1.wav");
+	music.setVolume(20);
 
-	//music.play();
+	music.play();
 
 	//game engine
 	MainMenu mainMenu(945, 709);

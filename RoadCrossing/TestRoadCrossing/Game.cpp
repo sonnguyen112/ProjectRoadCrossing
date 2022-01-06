@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "..\..\TestRoadCrossing\TestRoadCrossing\Game.h"
 
 void Game::initVehicles(RenderTarget & target)
 {
@@ -178,6 +177,7 @@ Game::Game(string gameType, string namePlayer)
 	this->initWindow();
 	this->initPlayer();
 	this->initLight();
+	this->initSound();
 	this->initText();
 	this->initSavedMes();
 	initVehicles(*window);
@@ -355,6 +355,7 @@ void Game::updateColVehicle()
 	for (auto e : this->vehicles) {
 		if (e->getGlobalBounds().contains(this->player->getMidPoint())) {
 			this->player->PlayerCol(90);
+			e->playSound();
 			this->endGame = true;
 			this->isGameOver = true;
 			break;
@@ -503,6 +504,7 @@ void Game::loadGame()
 void Game::updateLevel()
 {
 	if (this->player->getBound().top <= 10) {
+		this->levelUpSound.play();
 		this->point += 10;
 		this->level += 1;
 		for (int i = 0; i < 6; ++i) {
@@ -540,6 +542,12 @@ void Game::initLight()
 	this->light2.setPosition(910, 450);
 	this->light1.scale(0.2, 0.2);
 	this->light2.scale(0.2, 0.2);
+}
+
+void Game::initSound()
+{
+	this->levelUpBuffer.loadFromFile("sound//ting.flac");
+	this->levelUpSound.setBuffer(this->levelUpBuffer);
 }
 
 

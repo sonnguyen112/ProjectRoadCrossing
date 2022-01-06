@@ -24,6 +24,12 @@ Vehicle::Vehicle(string fpath,
 {
 	initTexture(fpath);
 	initSprite(scale, beginPos, vel_, direct_);
+	initSoundBuffer("sound//car_sound.flac");
+}
+
+void Vehicle::playSound()
+{
+	sound.play();
 }
 
 Vector2f Vehicle::getPosition()
@@ -55,6 +61,14 @@ void Vehicle::setVel(float vel)
 void Vehicle::updateMovement()
 {
 	sprite.move(vel*direct, 0.f);
+}
+
+void Vehicle::initSoundBuffer(string fpath)
+{
+	if (!buffer.loadFromFile(fpath)) {
+		cout << "Could not load the sound" << endl;
+	}
+	sound.setBuffer(buffer);
 }
 
 

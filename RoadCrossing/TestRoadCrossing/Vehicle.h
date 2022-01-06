@@ -15,6 +15,8 @@ protected:
 	Sprite sprite;
 	Texture textureSheet;
 	Vector2f curPos;
+	SoundBuffer buffer;
+	Sound sound;
 	float vel;
 	int direct;
 
@@ -22,10 +24,12 @@ protected:
 	void initSprite(
 		float scale, Vector2f beginPos, float vel_, int direct_);
 	void updateMovement();
+	void initSoundBuffer(string fpath);
 public:
 	Vehicle(string fpath,
 		float scale, Vector2f beginPos, float vel_, int direct_);
 
+	virtual void playSound();
 	virtual Vector2f getPosition();
 	virtual FloatRect getGlobalBounds();
 	virtual float getVel();
