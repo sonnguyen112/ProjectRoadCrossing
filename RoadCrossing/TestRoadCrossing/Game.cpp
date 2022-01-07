@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "..\..\TestRoadCrossing\TestRoadCrossing\Game.h"
 
 void Game::initVehicles(RenderTarget & target)
 {

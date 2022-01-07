@@ -1,2 +1,19 @@
-﻿  main.cpp
-  TestRoadCrossing.vcxproj -> C:\Data\C++\SFML\TestRoadCrossing\x64\Debug\TestRoadCrossing.exe
+﻿  Game.cpp
+c:\data\c++\sfml\project\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(88): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\data\c++\sfml\project\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(104): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+c:\data\c++\sfml\project\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(105): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+c:\data\c++\sfml\project\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(543): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\data\c++\sfml\project\projectroadcrossing\roadcrossing\testroadcrossing\game.cpp(544): warning C4305: 'argument': truncation from 'double' to 'float'
+  MainMenu.cpp
+c:\data\c++\sfml\project\projectroadcrossing\roadcrossing\testroadcrossing\mainmenu.cpp(30): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  Player.cpp
+  Generating Code...
+  TestRoadCrossing.vcxproj -> C:\Data\C++\SFML\Project\ProjectRoadCrossing\RoadCrossing\x64\Debug\TestRoadCrossing.exe
